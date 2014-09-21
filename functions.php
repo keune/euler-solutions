@@ -26,3 +26,64 @@ function factorial($num) {
 function isPalindrome($num) {
     return ($num == strrev((string) $num));
 }
+
+function stringMultiply($num1, $num2) {
+    $num1 = (string) $num1;
+    $num2 = (string) $num2;
+    $arrLength = strlen($num1) + strlen($num2);
+
+    $subResults = array();
+    for($i=strlen($num1)-1; $i>=0; $i--) {
+        $subResult = '';
+        $carry = 0;
+        for($j=strlen($num2)-1; $j>=0; $j--) {
+            $product = ($num1[$i] * $num2[$j]) + $carry;
+            $product = (string) $product;
+            if($product > 9) {
+                $carry = $product[0];
+                $product = $product[1];
+            } else {
+                $carry = 0;
+            }
+            $subResult = $product.$subResult;
+        }
+        $shift = strlen($num1)-1-$i;
+        $subResult .= str_repeat('0', $shift);
+        $subResult = $carry.$subResult;
+        
+        $subResults[] = str_pad($subResult, $arrLength, '0', STR_PAD_LEFT);
+    }
+
+    $result = '';
+    $carry = 0;
+    for($i=$arrLength-1; $i>=0; $i--) {
+        $sum = 0;
+        foreach($subResults as $sr) {
+            $sum += $sr[$i];
+        }
+        $sum += $carry;
+        $sum = (string) $sum;
+        if($sum > 9) {
+            $carry = substr($sum, 0, strlen($sum)-1);
+            $sum = $sum[strlen($sum)-1];
+        } else {
+            $carry = 0;
+        }
+        $result = $sum.$result;
+    }
+    $result = $carry.$result;
+    return preg_replace("/^0+/", '', $result);
+}
+
+class DU {
+    public static function show($var) {
+        echo "<pre>";
+        var_dump($var);
+        echo "</pre>";
+    }
+
+    public static function showAndDie($var) {
+        self::show($var);
+        die();
+    }
+}
