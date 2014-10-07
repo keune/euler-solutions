@@ -38,7 +38,7 @@ $numberDictionary  = array(
     1000000000000000000 => 'quintillion'
 );
 
-function spellNumber($number) { 
+function spellNumber($number) {
     global $numberDictionary;
     $result = array();
 
