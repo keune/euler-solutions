@@ -149,6 +149,15 @@ function stringMultiply($num1, $num2) {
     return preg_replace("/^0+/", '', $result);
 }
 
+function calculateExecutionTime() {
+    $startTime = microtime(true);
+    function printTime($startTime) {
+        $elapsedTime = microtime(true) - $startTime;
+        echo("\n Elapsed time: ".$elapsedTime);
+    }
+    register_shutdown_function('printTime', $startTime);
+}
+
 class DU {
     public static function show($var) {
         echo "<pre>";

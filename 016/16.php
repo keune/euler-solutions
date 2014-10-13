@@ -1,5 +1,4 @@
 <?php
-
 require_once '../functions.php';
 
 $number = pow(2, 50);

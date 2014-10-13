@@ -1,6 +1,6 @@
 <?php
 $multipliers = array();
-$numbers = range(1,20);
+$numbers = range(1, 20);
 
 for($k=2; $k<=max($numbers);) {
 	$add = false;
@@ -18,5 +18,5 @@ for($k=2; $k<=max($numbers);) {
 }
 
 var_dump($multipliers);
-$sonuc = array_product($multipliers);
-echo $sonuc;
+$result = array_product($multipliers);
+echo $result;

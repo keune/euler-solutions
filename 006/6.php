@@ -1,6 +1,6 @@
 <?php
-$nums = range(1, 100);
 
+$nums = range(1, 100);
 $all = 0;
 $group = 0;
 foreach($nums as $num) {

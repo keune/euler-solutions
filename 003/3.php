@@ -1,6 +1,6 @@
 <?php
-
 require_once '../functions.php';
+
 $number = 600851475143;
 $highest = 0;
 $i = 1;

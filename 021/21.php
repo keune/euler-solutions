@@ -1,4 +1,5 @@
 <?php
+
 $stop = 10000;
 $sums = array();
 for($i=1; $i<$stop; $i++) {

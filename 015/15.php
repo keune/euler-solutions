@@ -2,14 +2,7 @@
 set_time_limit(-1);
 require_once '../functions.php';
 
-$startTime = microtime(true);
-
-function printTime() {
-	global $startTime;
-	$elapsedTime = microtime(true) - $startTime;
-	DU::show("\n Elapsed time:".$elapsedTime);
-}
-register_shutdown_function('printTime');
+calculateExecutionTime();
 
 $start = 0;
 $stop = 14;
