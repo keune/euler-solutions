@@ -3,19 +3,21 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 func main() {
-	str := ""
+	var str strings.Builder
 	i := 0
-	for len(str) < 1000000 {
+	for str.Len() < 1000000 {
 		i++
-		str = str + strconv.Itoa(i)
+		str.WriteString(strconv.Itoa(i))
 	}
 
+	finishedStr := str.String()
 	res := 1
 	for _, i := range []int{0, 9, 99, 999, 9999, 99999, 999999} {
-		c, _ := strconv.Atoi(fmt.Sprintf("%c", str[i]))
+		c, _ := strconv.Atoi(fmt.Sprintf("%c", finishedStr[i]))
 		res *= c
 	}
 
